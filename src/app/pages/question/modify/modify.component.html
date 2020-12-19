@@ -1,0 +1,64 @@
+<form nz-form nzLayout="vertical" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <nz-form-item>
+    <nz-form-label nzRequired nzFor="title">标题</nz-form-label>
+    <nz-form-control>
+      <input type="text" nz-input formControlName="title" placeholder="" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired nzFor="type">类型</nz-form-label>
+    <nz-form-control nzErrorTip="必填项目">
+      <nz-select formControlName="type" [nzPlaceHolder]="'选择题目类型'">
+        <nz-option
+          *ngFor="let option of typeConf"
+          [nzLabel]="option.label"
+          [nzValue]="option.value"
+        >
+        </nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired nzFor="content">题干</nz-form-label>
+    <nz-form-control>
+      <sd-qg-quill formControlName="content"></sd-qg-quill>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item *ngFor="let control of listOfControl; let i = index">
+    <nz-form-label *ngIf="i == 0" [nzFor]="control.controlInstance"
+      >选项
+    </nz-form-label>
+    <nz-form-control
+      nzErrorTip="Please input passenger's name or delete this field."
+    >
+      <div fxLayout="row">
+        <input
+          class="passenger-input"
+          nz-input
+          placeholder="placeholder"
+          [attr.id]="control.id"
+          [formControlName]="control.controlInstance"
+        />
+        <i
+          nz-icon
+          nzType="minus-circle-o"
+          class="dynamic-delete-button"
+          (click)="removeField(control, $event)"
+        ></i>
+      </div>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control>
+      <button
+        nz-button
+        nzType="dashed"
+        class="add-button"
+        (click)="addField($event)"
+      >
+        <i nz-icon nzType="plus"></i>
+        添加选项
+      </button>
+    </nz-form-control>
+  </nz-form-item>
+</form>

@@ -17,6 +17,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "lodash"
+            ],
             "outputPath": "dist/music-exam-manage",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -25,7 +28,12 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                "output": "/assets/"
+              }
             ],
             "styles": [
               "src/styles.less"
@@ -123,6 +131,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "music-exam-manage"
+    }
+  },
+  "defaultProject": "music-exam-manage",
+  "cli": {
+    "analytics": "8639b350-a533-4e2a-8635-2c55fe030541"
+  }
 }

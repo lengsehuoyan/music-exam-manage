@@ -1,0 +1,46 @@
+<nz-spin [nzSpinning]="isSpinning"
+  ><form class="search-from">
+    <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="5px">
+      <button nz-button [nzType]="'primary'" (click)="showActionModal()">
+        添加题目
+      </button>
+    </div>
+  </form>
+  <!-- <ng-template #totalTemplate let-total> 共 {{ total }} 条 </ng-template>
+  <nz-table
+    #basicTable
+    [nzFrontPagination]="false"
+    [nzData]="tableInfo?.list"
+    [nzTotal]="tableInfo?.totalPage"
+    [(nzPageIndex)]="query.currentPage"
+    [nzPageSize]="query.pageSize"
+    (nzPageIndexChange)="getPageData()"
+    [nzShowPagination]="true"
+    [nzShowTotal]="totalTemplate"
+  >
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>姓名(cn)</th>
+        <th>姓名(en)</th>
+        <th>分类</th>
+        <th>资料语言</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{ data.id }}</td>
+        <td>{{ data.cn_name || "-" }}</td>
+        <td>{{ data.en_name || "-" }}</td>
+        <td>{{ data.category_name || "-" }}</td>
+        <td>{{ data.languageText || "-" }}</td>
+        <td>
+            <a (click)="showActionModal(data)">编辑</a>
+            <nz-divider nzType="vertical"></nz-divider>
+            <a (click)="delTeacherInfo(data)">删除</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table> -->
+</nz-spin>

@@ -26,6 +26,7 @@
       true,
       "element",
       "app",
+      "sd",
       "kebab-case"
     ],
     "eofline": true,
