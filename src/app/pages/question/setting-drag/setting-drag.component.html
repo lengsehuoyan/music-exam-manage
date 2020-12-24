@@ -1,0 +1,22 @@
+<div #target class="target">
+  <img
+    src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1607933651244&di=eb226067e78d02324d24eb32392ee877&imgtype=0&src=http%3A%2F%2Fa2.att.hudong.com%2F86%2F10%2F01300000184180121920108394217.jpg"
+    alt=""
+  />
+</div>
+<div class="source" #container sd-drag-container>
+  <img
+    src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1748072227,721743717&fm=26&gp=0.jpg"
+    sd-dragable (dragEnded)="imgDragEnded($event)"
+  />
+  <img
+    src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1748072227,721743717&fm=26&gp=0.jpg"
+    sd-dragable (dragEnded)="imgDragEnded($event)"
+  />
+  <img
+    src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1748072227,721743717&fm=26&gp=0.jpg"
+    sd-dragable (dragEnded)="imgDragEnded($event)"
+  />
+</div>
+<button nz-button (click)="save($event)">保存</button>
+<!-- sd-dragable -->

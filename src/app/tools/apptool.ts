@@ -1,5 +1,6 @@
 import { Constants, LabelOption } from '../base';
 import { map } from 'rxjs/operators';
+import { Position } from '../shared/directives';
 // import { plainToClass } from 'class-transformer';
 // import { ClassType } from 'class-transformer/ClassTransformer';
 
@@ -47,5 +48,16 @@ export class AppTool {
       return arr.pop();
     }
     return '';
+  }
+
+  static getGlobalPosition(element: HTMLElement): Position {
+    let left = 0;
+    let top = 0;
+    while (element && element !== document.body) {
+      left += element.offsetLeft;
+      top += element.offsetTop;
+      element = element.offsetParent as HTMLElement;
+    }
+    return { x: left, y: top };
   }
 }

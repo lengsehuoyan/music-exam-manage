@@ -20,6 +20,8 @@
       true,
       "attribute",
       "app",
+      "sd",
+      "kebab-case",
       "camelCase"
     ],
     "component-selector": [

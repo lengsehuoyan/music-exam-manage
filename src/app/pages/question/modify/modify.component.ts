@@ -2,9 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Constants, FormComponent } from 'src/app/base';
 import { FormControl, Validators } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { NzModalRef } from 'ng-zorro-antd/modal';
+import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
 import { Question } from 'src/app/models';
 import { AppTool } from 'src/app/tools';
+import { SettingDragComponent } from '../setting-drag/setting-drag.component';
 
 @Component({
   selector: 'app-question-action',
@@ -21,6 +22,7 @@ export class QuestionActionComponent extends FormComponent implements OnInit {
 
   constructor(
     private readonly modal: NzModalRef,
+    private readonly modalService: NzModalService,
     private readonly message: NzMessageService
   ) {
     super();
@@ -88,6 +90,21 @@ export class QuestionActionComponent extends FormComponent implements OnInit {
 
   onCancelClick($event: any): void {
     this.modal.destroy();
+  }
+
+  settingDrag($event: any): void {
+    // const params = question ? { data: question } : {};
+    this.modalService.create({
+      nzTitle: `设置拖拽`,
+      nzContent: SettingDragComponent,
+      // nzComponentParams: params,
+      nzFooter: null,
+      nzMaskClosable: false,
+      nzWidth: '1024',
+      nzOnOk: () => {
+        // this.getPageData();
+      },
+    });
   }
 
   get isEdit(): boolean {
